@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FoodGo | Online Payment</title>
+
+<style>
+
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#00c6ff,#0072ff);
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+/* PAYMENT CARD */
+
+.payment-box{
+background:white;
+padding:40px;
+width:420px;
+border-radius:20px;
+box-shadow:0 20px 40px rgba(0,0,0,.3);
+text-align:center;
+}
+
+/* TITLE */
+
+h2{
+margin-bottom:25px;
+color:#0072ff;
+}
+
+/* INPUT */
+
+.input-box{
+text-align:left;
+margin-bottom:12px;
+}
+
+.input-box label{
+font-size:13px;
+color:#555;
+}
+
+.input-box input{
+width:100%;
+padding:12px;
+margin-top:5px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:14px;
+}
+
+/* BUTTON */
+
+button{
+width:100%;
+padding:13px;
+background:linear-gradient(135deg,#0072ff,#005ac1);
+color:white;
+border:none;
+border-radius:10px;
+font-size:16px;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:translateY(-2px);
+box-shadow:0 10px 20px rgba(0,0,0,.3);
+}
+
+/* NOTE */
+
+.note{
+font-size:12px;
+color:gray;
+margin-top:12px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="payment-box">
+
+<h2>💳 Secure Payment</h2>
+
+<form method="POST" action="/complete_payment">
+
+<div class="input-box">
+<label>Card Number / UPI ID</label>
+<input type="text" name="card_number" placeholder="Enter card or UPI ID" required>
+</div>
+
+<div class="input-box">
+<label>Name on Card</label>
+<input type="text" name="card_name" placeholder="Enter name on card" required>
+</div>
+
+<div class="input-box">
+<label>Expiry Date</label>
+<input type="text" name="expiry" placeholder="MM/YY" required>
+</div>
+
+<div class="input-box">
+<label>CVV</label>
+<input type="password" name="cvv" placeholder="***" required>
+</div>
+
+<button type="submit">🔐 Pay Securely</button>
+
+</form>
+
+<p class="note">Demo Payment Page — No real transaction processed</p>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>FoodGo Cart</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ff9966,#ff5e62);
+}
+
+/* CART CARD */
+
+.container{
+width:650px;
+background:white;
+padding:35px;
+border-radius:18px;
+box-shadow:0 20px 40px rgba(0,0,0,.25);
+}
+
+/* TITLE */
+
+.title{
+text-align:center;
+font-size:22px;
+font-weight:600;
+margin-bottom:25px;
+color:#ff5722;
+}
+
+/* CART ITEM */
+
+.cart-item{
+display:flex;
+justify-content:space-between;
+padding:12px 0;
+border-bottom:1px solid #eee;
+font-size:16px;
+}
+
+/* TOTAL */
+
+.total{
+text-align:right;
+margin-top:15px;
+font-size:18px;
+font-weight:600;
+}
+
+/* ADDRESS */
+
+.address{
+margin-top:20px;
+}
+
+.address input{
+width:100%;
+padding:12px;
+border-radius:8px;
+border:1px solid #ccc;
+margin-top:8px;
+}
+
+/* PAYMENT */
+
+.payment{
+margin-top:20px;
+}
+
+.payment label{
+display:block;
+margin-top:5px;
+font-size:14px;
+}
+
+/* BUTTON */
+
+button{
+width:100%;
+margin-top:25px;
+padding:14px;
+border:none;
+border-radius:12px;
+background:linear-gradient(135deg,#ff9800,#ff5722);
+color:white;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.03);
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="title">🛒 Your Cart</div>
+
+{% if cart %}
+
+{% for item in cart %}
+
+<div class="cart-item">
+
+<span>{{item.name}}</span>
+
+<span>₹ {{item.price}}</span>
+
+</div>
+
+{% endfor %}
+
+<div class="total">
+Total: ₹ {{total}}
+</div>
+
+<form method="POST" action="/place_order">
+
+<div class="address">
+
+<label>📍 Delivery Address</label>
+
+<input type="text" name="address" placeholder="Enter your address" required>
+
+</div>
+
+<div class="payment">
+
+<label>💳 Payment Method</label>
+
+<label>
+<input type="radio" name="payment" value="cod" required>
+Cash on Delivery
+</label>
+
+<label>
+<input type="radio" name="payment" value="online">
+Online Payment
+</label>
+
+</div>
+
+<button type="submit">🚀 Place Order</button>
+
+</form>
+
+{% else %}
+
+<p style="text-align:center;">Your cart is empty.</p>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>

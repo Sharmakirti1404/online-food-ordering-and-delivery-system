@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Orders</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+/* BACKGROUND */
+
+body{
+background:linear-gradient(135deg,#f6e2b3,#e7c980);
+min-height:100vh;
+}
+
+/* NAVBAR */
+
+.navbar{
+height:65px;
+background:linear-gradient(135deg,#ff9800,#ff5722);
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 30px;
+color:white;
+font-size:20px;
+font-weight:600;
+}
+
+.menu-btn{
+background:white;
+color:#ff5722;
+padding:6px 15px;
+border-radius:20px;
+text-decoration:none;
+font-size:14px;
+}
+
+/* CARD */
+
+.container{
+width:85%;
+margin:40px auto;
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 15px 35px rgba(0,0,0,.2);
+}
+
+/* TABLE */
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+background:#ff9800;
+color:white;
+padding:12px;
+text-align:center;
+}
+
+td{
+padding:12px;
+text-align:center;
+border-bottom:1px solid #eee;
+}
+
+/* STATUS BADGES */
+
+.status{
+padding:5px 12px;
+border-radius:15px;
+font-size:12px;
+color:white;
+}
+
+.ordered{
+background:#ff9800;
+}
+
+.preparing{
+background:#2196f3;
+}
+
+.delivered{
+background:#4caf50;
+}
+
+/* PROGRESS */
+
+.progress span{
+padding:4px 10px;
+border-radius:10px;
+font-size:11px;
+margin:2px;
+display:inline-block;
+}
+
+.done{
+background:#4caf50;
+color:white;
+}
+
+.pending{
+background:#ddd;
+}
+
+/* CANCEL BUTTON */
+
+.cancel{
+background:#e53935;
+color:white;
+border:none;
+padding:5px 12px;
+border-radius:12px;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="navbar">
+📦 My Orders
+<a href="/menu" class="menu-btn">🍽 Menu</a>
+</div>
+
+<div class="container">
+
+<table>
+
+<tr>
+<th>Food</th>
+<th>Qty</th>
+<th>Status</th>
+<th>Progress</th>
+<th>ETA</th>
+<th>Action</th>
+</tr>
+
+{% for o in orders %}
+
+<tr>
+
+<td>{{o.food_name}}</td>
+<td>{{o.qty}}</td>
+
+<td>
+<span class="status 
+{% if o.status=='Ordered' %}ordered
+{% elif o.status=='Preparing' %}preparing
+{% elif o.status=='Delivered' %}delivered
+{% endif %}">
+{{o.status}}
+</span>
+</td>
+
+<td class="progress">
+
+<span class="{% if o.status in ['Ordered','Preparing','Delivered'] %}done{% else %}pending{% endif %}">
+Ordered
+</span>
+
+<span class="{% if o.status in ['Preparing','Delivered'] %}done{% else %}pending{% endif %}">
+Preparing
+</span>
+
+<span class="{% if o.status=='Delivered' %}done{% else %}pending{% endif %}">
+Delivered
+</span>
+
+</td>
+
+<td>
+{% if o.status!='Delivered' %}
+⏱ 25-30 mins
+{% else %}
+—
+{% endif %}
+</td>
+
+<td>
+
+{% if o.status=='Ordered' %}
+<form action="/delete_order/{{o.id}}" method="post">
+<button class="cancel">Cancel</button>
+</form>
+{% else %}
+—
+{% endif %}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+</html>

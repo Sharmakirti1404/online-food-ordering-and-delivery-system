@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FoodGo | Order Food Online</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#fafafa;
+}
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 60px;
+background:linear-gradient(135deg,#ff8a00,#ff5722);
+color:white;
+}
+
+.logo{
+font-size:26px;
+font-weight:600;
+}
+
+.nav-links a{
+margin-left:25px;
+text-decoration:none;
+color:white;
+font-weight:500;
+transition:.3s;
+}
+
+.nav-links a:hover{
+opacity:.7;
+}
+
+/* HERO */
+
+.hero{
+height:90vh;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+text-align:center;
+background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+url("https://images.unsplash.com/photo-1504674900247-0877df9cc836");
+background-size:cover;
+background-position:center;
+color:white;
+}
+
+.hero h1{
+font-size:60px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:20px;
+margin-bottom:25px;
+}
+
+.hero button{
+padding:14px 35px;
+border:none;
+border-radius:30px;
+background:#ff5722;
+color:white;
+font-size:16px;
+cursor:pointer;
+margin:8px;
+transition:.3s;
+}
+
+.hero button:hover{
+transform:scale(1.07);
+}
+
+/* SECTION TITLE */
+
+.section-title{
+text-align:center;
+margin:60px 0 30px;
+font-size:34px;
+}
+
+/* FOOD GRID */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+padding:0 70px;
+}
+
+.card{
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 15px 30px rgba(0,0,0,.15);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card img{
+width:100%;
+height:170px;
+object-fit:cover;
+}
+
+.card-body{
+padding:15px;
+text-align:center;
+}
+
+.price{
+color:#ff5722;
+font-weight:600;
+}
+
+/* HOW IT WORKS */
+
+.steps{
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+padding:40px;
+}
+
+.step{
+background:white;
+padding:25px;
+border-radius:20px;
+width:220px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,.1);
+transition:.3s;
+}
+
+.step:hover{
+transform:scale(1.05);
+}
+
+/* RESTAURANTS */
+
+.restaurants{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+padding:20px;
+}
+
+.rest{
+background:#ffe0b2;
+padding:12px 25px;
+border-radius:20px;
+font-weight:500;
+}
+
+/* CONTACT */
+
+.contact{
+text-align:center;
+padding:30px;
+}
+
+/* FOOTER */
+
+.footer{
+background:#333;
+color:white;
+text-align:center;
+padding:25px;
+margin-top:50px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+
+<div class="logo">🍽 FoodGo</div>
+
+<div class="nav-links">
+<a href="/menu">Menu</a>
+<a href="/login">Login</a>
+<a href="/register">Register</a>
+</div>
+
+</div>
+
+
+<!-- HERO -->
+
+<div class="hero">
+
+<h1>Delicious Food Delivered Fast</h1>
+
+<a href="/menu">
+<button>🍔 Explore Menu</button>
+</a>
+
+<a href="/login">
+<button>🔑 Login</button>
+</a>
+
+</div>
+
+
+<!-- POPULAR FOODS -->
+
+<h2 class="section-title">Popular Foods</h2>
+
+<div class="grid">
+
+<div class="card">
+<img src="/static/images/paneer_butter_masala.jpg">
+<div class="card-body">
+<h3>Paneer Butter Masala</h3>
+<p class="price">₹220</p>
+</div>
+</div>
+
+<div class="card">
+<img src="/static/images/veg_biryani.jpg">
+<div class="card-body">
+<h3>Veg Biryani</h3>
+<p class="price">₹180</p>
+</div>
+</div>
+
+<div class="card">
+<img src="/static/images/butter_naan.jpg">
+<div class="card-body">
+<h3>Butter Naan</h3>
+<p class="price">₹40</p>
+</div>
+</div>
+
+<div class="card">
+<img src="/static/images/masala_dosa.jpg">
+<div class="card-body">
+<h3>Masala Dosa</h3>
+<p class="price">₹90</p>
+</div>
+</div>
+
+</div>
+
+
+<!-- HOW IT WORKS -->
+
+<h2 class="section-title">How It Works</h2>
+
+<div class="steps">
+
+<div class="step">
+<h3>1️⃣ Browse Menu</h3>
+<p>Select your favourite meals</p>
+</div>
+
+<div class="step">
+<h3>2️⃣ Add To Cart</h3>
+<p>Choose items and quantity</p>
+</div>
+
+<div class="step">
+<h3>3️⃣ Secure Payment</h3>
+<p>Safe and quick payment</p>
+</div>
+
+<div class="step">
+<h3>4️⃣ Fast Delivery</h3>
+<p>Get food delivered to your doorstep</p>
+</div>
+
+</div>
+
+
+<!-- RESTAURANTS -->
+
+<h2 class="section-title">Partner Restaurants</h2>
+
+<div class="restaurants">
+
+<div class="rest">FoodGo Kitchen</div>
+<div class="rest">Spice Villa</div>
+<div class="rest">Tandoori Hub</div>
+<div class="rest">Urban Bites</div>
+<div class="rest">Burger Point</div>
+
+</div>
+
+
+<!-- WHY CHOOSE US -->
+
+<h2 class="section-title">Why Choose FoodGo</h2>
+
+<div class="steps">
+
+<div class="step">
+<h3>🚀 Fast Delivery</h3>
+<p>Get your food quickly.</p>
+</div>
+
+<div class="step">
+<h3>🍽 Fresh Food</h3>
+<p>Quality meals from trusted restaurants.</p>
+</div>
+
+<div class="step">
+<h3>💳 Secure Payment</h3>
+<p>Safe and reliable transactions.</p>
+</div>
+
+</div>
+
+
+<!-- CONTACT -->
+
+<h2 class="section-title">Contact Us</h2>
+
+<div class="contact">
+
+<p>Email: support@foodgo.com</p>
+<p>Phone: +91 9876543210</p>
+<p>Location: Mumbai, India</p>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+<p>© 2026 FoodGo | Online Food Ordering System</p>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FoodGo | Menu</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#f5e3c3,#e8d2a8);
+min-height:100vh;
+}
+
+/* NAVBAR */
+
+.navbar{
+height:70px;
+background:linear-gradient(135deg,#ff8a00,#ff5722);
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 40px;
+box-shadow:0 6px 20px rgba(0,0,0,.2);
+}
+
+.brand{
+color:white;
+font-size:24px;
+font-weight:600;
+}
+
+.cart{
+background:white;
+color:#ff5722;
+padding:8px 18px;
+border-radius:25px;
+text-decoration:none;
+font-weight:500;
+}
+
+/* MENU GRID */
+
+.container{
+padding:40px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+/* CARD */
+
+.card{
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 18px 35px rgba(0,0,0,.25);
+}
+
+/* IMAGE */
+
+.img-box{
+position:relative;
+height:160px;
+overflow:hidden;
+}
+
+.img-box img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* PRICE */
+
+.price{
+position:absolute;
+top:10px;
+right:10px;
+background:#2e7d32;
+color:white;
+padding:5px 12px;
+border-radius:15px;
+font-size:12px;
+}
+
+/* BODY */
+
+.card-body{
+padding:15px;
+text-align:center;
+}
+
+.food-name{
+font-weight:600;
+font-size:16px;
+margin-bottom:5px;
+}
+
+/* RESTAURANT BADGE */
+
+.restaurant{
+display:inline-block;
+background:#fff3e0;
+color:#ff7043;
+padding:3px 10px;
+border-radius:10px;
+font-size:12px;
+margin-bottom:6px;
+}
+
+/* AVAILABLE */
+
+.available{
+color:#2e7d32;
+font-size:13px;
+margin-bottom:10px;
+}
+
+/* BUTTON */
+
+.btn{
+padding:8px 20px;
+border:none;
+border-radius:20px;
+background:linear-gradient(135deg,#ff9800,#ff5722);
+color:white;
+font-size:14px;
+cursor:pointer;
+transition:.3s;
+text-decoration:none;
+display:inline-block;
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+<div class="brand">🍽 FoodGo</div>
+<a href="{{ url_for('cart') }}" class="cart">🛒 Cart</a>
+</div>
+
+<div class="container">
+
+<div class="grid">
+
+{% set restaurants = [
+"FoodGo Kitchen",
+"Spice Villa",
+"Tandoori Hub",
+"Urban Bites",
+"Royal Curry House",
+"Burger Point",
+"Sandwich Corner",
+"Biryani Express",
+"South Indian Delight",
+"Street Food Junction"
+] %}
+
+{% for f in foods %}
+
+<div class="card">
+
+<div class="img-box">
+
+<img src="{{ url_for('static', filename='images/' + f.image) }}" alt="{{f.name}}">
+
+<div class="price">₹ {{f.price}}</div>
+
+</div>
+
+<div class="card-body">
+
+<div class="food-name">{{f.name}}</div>
+
+<div class="restaurant">
+{{ restaurants[loop.index0 % restaurants|length] }}
+</div>
+
+
+<div class="available">✔ Available</div>
+
+<a href="{{ url_for('add_to_cart', id=f.id) }}" class="btn">
+Add to Cart
+</a>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
+</body>
+</html>

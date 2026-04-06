@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Create Account | FoodGo</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#00c9a7,#3a7bd5);
+}
+
+/* CARD */
+
+.container{
+width:420px;
+background:white;
+padding:40px;
+border-radius:25px;
+text-align:center;
+box-shadow:0 25px 50px rgba(0,0,0,.2);
+animation:fadeIn .6s ease;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+h2{
+margin-bottom:25px;
+font-weight:600;
+}
+
+/* INPUTS */
+
+input,select{
+width:100%;
+padding:14px;
+margin-bottom:15px;
+border-radius:12px;
+border:1px solid #ddd;
+font-size:14px;
+transition:.3s;
+}
+
+input:focus,select:focus{
+border-color:#00c9a7;
+outline:none;
+box-shadow:0 0 8px rgba(0,201,167,.3);
+}
+
+/* PASSWORD BOX */
+
+.password-box{
+position:relative;
+}
+
+.password-box span{
+position:absolute;
+right:15px;
+top:14px;
+cursor:pointer;
+font-size:18px;
+}
+
+/* BUTTON */
+
+button{
+width:100%;
+padding:14px;
+border:none;
+border-radius:30px;
+background:linear-gradient(135deg,#00c9a7,#3a7bd5);
+color:white;
+font-size:16px;
+font-weight:500;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+/* LOGIN LINK */
+
+.login{
+margin-top:18px;
+font-size:14px;
+}
+
+.login a{
+color:#3a7bd5;
+text-decoration:none;
+font-weight:500;
+}
+
+.login a:hover{
+text-decoration:underline;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Create Account</h2>
+
+<form method="POST" action="/register" onsubmit="return validatePassword()">
+
+<input type="text" name="name" placeholder="Full Name" required>
+
+<input type="email" name="email" placeholder="Email Address" required>
+
+<div class="password-box">
+<input type="password" id="password" name="password" placeholder="Password" required>
+<span onclick="togglePassword()">👁</span>
+</div>
+
+<input type="password" placeholder="Confirm Password" required>
+
+<select name="role" required>
+<option value="">Select Role</option>
+<option value="customer">Customer</option>
+<option value="restaurant">Restaurant</option>
+<option value="delivery">Delivery</option>
+<option value="admin">Admin</option>
+</select>
+<button type="submit">Register</button>
+
+</form>
+
+<div class="login">
+Already have account? <a href="/login">Login</a>
+</div>
+
+</div>
+
+<script>
+
+/* PASSWORD VALIDATION */
+
+function validatePassword(){
+
+var password=document.getElementById("password").value;
+
+var pattern=/^(?=.*[A-Za-z])(?=.*\d).{6,}$/;
+
+if(!pattern.test(password)){
+alert("Password must be at least 6 characters and contain letters and numbers");
+return false;
+}
+
+return true;
+
+}
+
+/* SHOW / HIDE PASSWORD */
+
+function togglePassword(){
+
+var password=document.getElementById("password");
+
+if(password.type==="password"){
+password.type="text";
+}else{
+password.type="password";
+}
+
+}
+
+</script>
+
+</body>
+</html>

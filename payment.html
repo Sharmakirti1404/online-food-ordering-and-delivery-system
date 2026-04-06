@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Payment</title>
+
+<style>
+
+body{
+font-family:Poppins;
+background:linear-gradient(135deg,#00c6ff,#0072ff);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.card{
+background:white;
+padding:40px;
+border-radius:20px;
+width:350px;
+text-align:center;
+}
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:10px;
+border:1px solid #ccc;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#0072ff;
+border:none;
+color:white;
+border-radius:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>💳 Payment</h2>
+
+<form method="POST" action="/complete_payment">
+
+<input type="text" placeholder="Card Number" required>
+
+<input type="text" placeholder="Card Holder Name" required>
+
+<input type="text" placeholder="Expiry Date" required>
+
+<input type="password" placeholder="CVV" required>
+
+<button type="submit">Pay</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

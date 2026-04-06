@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Restaurant Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+/* BACKGROUND */
+
+body{
+background:linear-gradient(135deg,#f5e2b3,#e6c98d);
+min-height:100vh;
+}
+
+/* NAVBAR */
+
+.navbar{
+height:65px;
+background:linear-gradient(135deg,#ff8a00,#ff5722);
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 30px;
+color:white;
+font-size:18px;
+font-weight:600;
+}
+
+.logout{
+background:#ff7043;
+color:white;
+padding:6px 15px;
+border-radius:15px;
+text-decoration:none;
+font-size:14px;
+}
+
+/* CARD */
+
+.container{
+width:70%;
+margin:50px auto;
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 15px 35px rgba(0,0,0,.2);
+}
+
+/* TITLE */
+
+.title{
+text-align:center;
+font-size:22px;
+color:#ff5722;
+margin-bottom:20px;
+}
+
+/* TABLE */
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+background:#ff9800;
+color:white;
+padding:12px;
+text-align:center;
+}
+
+td{
+padding:14px;
+text-align:center;
+border-bottom:1px solid #eee;
+}
+
+/* RESTAURANT BADGE */
+
+.badge{
+background:#ffe0b2;
+color:#ff7043;
+padding:4px 12px;
+border-radius:12px;
+font-size:12px;
+}
+
+/* BUTTONS */
+
+.prepare{
+background:#ff9800;
+color:white;
+border:none;
+padding:6px 14px;
+border-radius:15px;
+cursor:pointer;
+}
+
+.prepare:hover{
+background:#fb8c00;
+}
+
+.delete{
+background:#e53935;
+color:white;
+border:none;
+padding:6px 14px;
+border-radius:15px;
+cursor:pointer;
+margin-left:6px;
+}
+
+.delete:hover{
+background:#c62828;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="navbar">
+🔎 FoodGo Restaurant Panel
+<a href="/logout" class="logout">Logout</a>
+</div>
+
+<div class="container">
+
+<div class="title">📦 Incoming Orders</div>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Restaurant</th>
+<th>Food</th>
+<th>Address</th>
+<th>Action</th>
+</tr>
+
+{% for o in orders %}
+
+<tr>
+
+<td>#{{o.id}}</td>
+
+<td>
+<span class="badge">Hot & Spicy</span>
+</td>
+
+<td>{{o.food_name}}</td>
+
+<td>{{o.address}}</td>
+
+<td>
+
+<a href="/prepare/{{o.id}}">
+<button class="prepare">🔍 Prepare</button>
+</a>
+
+<a href="/restaurant_delete_order/{{o.id}}">
+<button class="delete">🗑 Delete</button>
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</body>
+</html>
