@@ -86,8 +86,8 @@ git clone https://github.com/Sharmakirti1404/online-food-ordering-and-delivery-s
 ## 💻 Technologies Used
 
 * **Frontend:** HTML, CSS, JavaScript
-* **Backend:** (Add your backend – PHP / Python / ASP.NET)
-* **Database:** MySQL / SQLite
+* **Backend:** Python 
+* **Database:** MySQL 
 
 ---
 
@@ -105,17 +105,24 @@ git clone https://github.com/Sharmakirti1404/online-food-ordering-and-delivery-s
 cd online-food-ordering-and-delivery-system
 ```
 
-3. Setup database:
+3. Install dependencies (if required):
 
-* Import the `.sql` file
-* Configure database connection
+```bash
+pip install -r requirements.txt
+```
 
 4. Run the project:
 
-* Start server (XAMPP / Localhost)
-* Open in browser
+```bash
+python app.py
+```
 
----
+5. Open in browser:
+
+```
+http://127.0.0.1:5000
+```
+
 
 ## 🚀 Future Enhancements
 
