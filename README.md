@@ -37,7 +37,6 @@ git clone https://github.com/Sharmakirti1404/online-food-ordering-and-delivery-s
 ### 🚚 Delivery Panel
 
 * View assigned orders
-* Update delivery status
 
 ---
 
